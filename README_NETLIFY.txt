@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kacper Kossakowski — Portfolio stron internetowych</title>
+  <meta name="description" content="Portfolio realizacji stron internetowych — MAPLEX i GPG79 GLOBAL." />
+  <meta property="og:title" content="Kacper Kossakowski — Portfolio stron internetowych" />
+  <meta property="og:description" content="Portfolio realizacji stron internetowych: strony firmowe, układ, responsywność, wdrożenie treści." />
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --bg2: #11151d;
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.12);
+      --text: #f6f7fb;
+      --muted: #b7bdca;
+      --line: rgba(255,255,255,.14);
+      --accent: #8fd3ff;
+      --accent2: #ffd28f;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143,211,255,.22), transparent 28%),
+        radial-gradient(circle at 86% 20%, rgba(255,210,143,.20), transparent 28%),
+        linear-gradient(145deg, #090b10, #111827 55%, #0a0d12);
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(10,13,18,.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { height: 70px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { font-weight: 800; letter-spacing: -.03em; }
+    .brand span { color: var(--accent); }
+    .nav-links { display:flex; gap: 18px; color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--text); }
+    .hero { padding: 96px 0 56px; }
+    .hero-grid { display:grid; grid-template-columns: 1.1fr .9fr; gap:44px; align-items:center; }
+    .eyebrow { color: var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:.14em; font-size:13px; }
+    h1 { font-size: clamp(42px, 7vw, 76px); line-height:.96; letter-spacing:-.07em; margin:18px 0; }
+    .lead { font-size: 20px; line-height:1.55; color: var(--muted); max-width: 650px; }
+    .cta { display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+    .btn { padding: 14px 18px; border-radius: 999px; border:1px solid var(--line); background: var(--card); font-weight: 700; }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), #d9f2ff); color:#071019; border:0; }
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: 22px;
+      box-shadow: 0 30px 100px rgba(0,0,0,.35);
+    }
+    .mini-window { background:#eef1f5; border-radius:24px; overflow:hidden; color:#111; }
+    .window-top { height:46px; background:#fff; display:flex; gap:8px; align-items:center; padding: 0 16px; }
+    .dot { width:10px; height:10px; border-radius:999px; background:#ff6b6b; }
+    .dot:nth-child(2){background:#ffc65c}.dot:nth-child(3){background:#62d26f}
+    .window-body { padding: 28px; min-height: 340px; background: linear-gradient(135deg,#f7f7f2,#e7edf2); }
+    .window-body h2 { font-size: 32px; line-height:1.05; letter-spacing:-.04em; margin:0 0 16px; }
+    .window-lines { display:grid; gap:12px; margin-top:24px; }
+    .line { height:14px; border-radius:999px; background:#cfd6de; }
+    .line:nth-child(1){width:90%}.line:nth-child(2){width:74%}.line:nth-child(3){width:62%}
+    .stats { display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:28px; }
+    .stat { border:1px solid var(--line); background:var(--card); border-radius:22px; padding:18px; }
+    .stat b { display:block; font-size:28px; letter-spacing:-.04em; }
+    .stat span { color:var(--muted); font-size:14px; }
+    section { padding: 54px 0; }
+    .section-title { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:24px; }
+    h2 { font-size: clamp(30px, 4vw, 48px); letter-spacing:-.05em; margin:0; }
+    .section-title p { margin:0; color:var(--muted); max-width:520px; line-height:1.55; }
+    .cards { display:grid; gap:28px; }
+    .project {
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+      border:1px solid var(--line);
+      border-radius:34px;
+      overflow:hidden;
+    }
+    .project-inner { display:grid; grid-template-columns: .95fr 1.05fr; gap:0; }
+    .preview { padding:22px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,.04); }
+    .preview img { width:100%; border-radius:22px; display:block; box-shadow: 0 24px 80px rgba(0,0,0,.28); }
+    .content { padding:34px; }
+    .tagrow { display:flex; gap:8px; flex-wrap:wrap; margin:18px 0 24px; }
+    .tag { border:1px solid var(--line); background:rgba(255,255,255,.08); color:#e9edf5; padding:8px 10px; border-radius:999px; font-size:13px; }
+    .content h3 { font-size:34px; line-height:1.05; letter-spacing:-.04em; margin:0 0 12px; }
+    .content p { color:var(--muted); line-height:1.65; margin:0 0 16px; }
+    .list { display:grid; gap:10px; margin: 20px 0 24px; padding:0; list-style:none; color:#dfe5ef; }
+    .list li { display:flex; gap:10px; align-items:flex-start; }
+    .list li:before { content:"✓"; color:var(--accent); font-weight:900; }
+    .project-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .skills { display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; }
+    .skill { background:var(--card); border:1px solid var(--line); border-radius:20px; padding:16px; color:#e9edf5; }
+    .contact { background:linear-gradient(135deg, rgba(143,211,255,.18), rgba(255,210,143,.13)); border:1px solid var(--line); border-radius:34px; padding:34px; display:grid; grid-template-columns:1fr auto; gap:26px; align-items:center; }
+    .contact p { color:var(--muted); line-height:1.6; margin:10px 0 0; max-width:640px; }
+    footer { padding: 32px 0 44px; color:var(--muted); border-top:1px solid var(--line); margin-top: 44px; }
+    .note { color:var(--muted); font-size: 13px; line-height:1.55; margin-top: 16px; }
+    @media (max-width: 880px) {
+      .nav-links { display:none; }
+      .hero-grid, .project-inner, .contact { grid-template-columns:1fr; }
+      .skills { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding-top: 64px; }
+    }
+    @media (max-width: 520px) {
+      .wrap { width:min(var(--max), calc(100% - 28px)); }
+      .stats, .skills { grid-template-columns:1fr; }
+      .content { padding:24px; }
+      .preview { padding:14px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap nav">
+      <a class="brand" href="#top">Kacper<span>.</span>Portfolio</a>
+      <div class="nav-links">
+        <a href="#realizacje">Realizacje</a>
+        <a href="#umiejetnosci">Umiejętności</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Portfolio stron internetowych</div>
+          <h1>Nowoczesne strony firmowe i wizytówki online.</h1>
+          <p class="lead">Tworzę przejrzyste strony internetowe, które dobrze prezentują ofertę firmy, budują wiarygodność i ułatwiają kontakt z klientem. Poniżej znajdziesz wybrane realizacje.</p>
+          <div class="cta">
+            <a class="btn primary" href="#realizacje">Zobacz realizacje</a>
+            <a class="btn" href="#kontakt">Kontakt</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>2</b><span>projekty w portfolio</span></div>
+            <div class="stat"><b>RWD</b><span>mobile + desktop</span></div>
+            <div class="stat"><b>WWW</b><span>strony firmowe</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="mini-window">
+            <div class="window-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="window-body">
+              <h2>Projekt, treść, układ, publikacja.</h2>
+              <div class="window-lines"><span class="line"></span><span class="line"></span><span class="line"></span></div>
+              <div class="tagrow">
+                <span class="tag">WordPress</span><span class="tag">HTML/CSS</span><span class="tag">Responsywność</span><span class="tag">UI</span>
+              </div>
+              <p style="color:#46505c;margin-top:18px">Portfolio bez publicznego repozytorium kodu — prezentacja realizacji jako screeny, opisy i linki do stron live.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="realizacje">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Realizacje</h2>
+          <p>Wybrane projekty stron internetowych przygotowanych dla firm z różnych branż.</p>
+        </div>
+        <div class="cards">
+          <article class="project">
+            <div class="project-inner">
+              <div class="preview">
+                <img src="assets/maplex-preview.svg" alt="Podgląd projektu MAPLEX" />
+              </div>
+              <div class="content">
+                <div class="eyebrow">Strona firmowa</div>
+                <h3>MAPLEX | Surowce Naturalne</h3>
+                <p>Strona internetowa dla firmy z branży surowców naturalnych i kruszyw. Projekt skupia się na jasnym przedstawieniu oferty, wiarygodności firmy oraz szybkim kontakcie z klientem.</p>
+                <div class="tagrow">
+                  <span class="tag">branża budowlana</span><span class="tag">kruszywa</span><span class="tag">WordPress</span><span class="tag">RWD</span>
+                </div>
+                <ul class="list">
+                  <li>przejrzysty układ strony głównej i sekcji ofertowych,</li>
+                  <li>prezentacja zalet firmy i zastosowań produktu,</li>
+                  <li>formularz oraz dane kontaktowe,</li>
+                  <li>kompozycja dopasowana do branży przemysłowej.</li>
+                </ul>
+                <div class="project-actions">
+                  <a class="btn primary" href="https://maplex.com.pl/" target="_blank" rel="noopener">Otwórz stronę</a>
+                </div>
+                <p class="note">W folderze możesz podmienić grafikę <strong>assets/maplex-preview.svg</strong> na prawdziwy screenshot strony.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-inner">
+              <div class="preview">
+                <img src="assets/gpg-preview.svg" alt="Podgląd projektu GPG79 GLOBAL" />
+              </div>
+              <div class="content">
+                <div class="eyebrow">Corporate website</div>
+                <h3>GPG79 GLOBAL</h3>
+                <p>Strona korporacyjna dla marki działającej w obszarze usług paliwowych, transportu produktów petroleum, charteringu jednostek i logistyki morskiej.</p>
+                <div class="tagrow">
+                  <span class="tag">marine logistics</span><span class="tag">petroleum</span><span class="tag">corporate</span><span class="tag">RWD</span>
+                </div>
+                <ul class="list">
+                  <li>profesjonalna prezentacja międzynarodowej działalności,</li>
+                  <li>układ nastawiony na wiarygodność biznesową,</li>
+                  <li>czytelna komunikacja zakresu usług,</li>
+                  <li>estetyka dopasowana do branży logistyczno-paliwowej.</li>
+                </ul>
+                <div class="project-actions">
+                  <a class="btn primary" href="https://gpg79.global/" target="_blank" rel="noopener">Otwórz stronę</a>
+                </div>
+                <p class="note">W folderze możesz podmienić grafikę <strong>assets/gpg-preview.svg</strong> na prawdziwy screenshot strony.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="umiejetnosci">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Umiejętności</h2>
+          <p>Zakres prac, które mogę pokazać w portfolio i dopisać w CV.</p>
+        </div>
+        <div class="skills">
+          <div class="skill">Projektowanie layoutów</div>
+          <div class="skill">Strony firmowe</div>
+          <div class="skill">Responsywność</div>
+          <div class="skill">WordPress</div>
+          <div class="skill">HTML / CSS</div>
+          <div class="skill">Dobór grafik</div>
+          <div class="skill">Formularze kontaktowe</div>
+          <div class="skill">Publikacja strony online</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="wrap">
+        <div class="contact">
+          <div>
+            <div class="eyebrow">Kontakt</div>
+            <h2>Porozmawiajmy o stronie internetowej.</h2>
+            <p>Chętnie przygotuję prostą stronę firmową, wizytówkę online lub landing page. Skontaktuj się ze mną mailowo.</p>
+            <p><strong>E-mail:</strong> <a href="mailto:kacper.koss02@gmail.com">kacper.koss02@gmail.com</a><br><strong>Telefon:</strong> <a href="tel:+48884338554">884 338 554</a></p>
+          </div>
+          <a class="btn primary" href="mailto:kacper.koss02@gmail.com">Napisz maila</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Kacper Kossakowski. Portfolio stron internetowych.</div>
+  </footer>
+</body>
+</html>

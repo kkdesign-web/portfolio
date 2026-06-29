@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071723"/>
+      <stop offset="55%" stop-color="#0d3447"/>
+      <stop offset="100%" stop-color="#1b6775"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d5a74f"/>
+      <stop offset="100%" stop-color="#f2df9b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="38" fill="url(#sea)"/>
+  <rect x="70" y="70" width="1060" height="620" rx="28" fill="#f7fafc"/>
+  <rect x="70" y="70" width="1060" height="72" rx="28" fill="#ffffff"/>
+  <circle cx="116" cy="106" r="10" fill="#d5a74f"/><circle cx="148" cy="106" r="10" fill="#2e6d7a"/><circle cx="180" cy="106" r="10" fill="#183243"/>
+  <text x="230" y="116" font-family="Inter, Arial" font-size="26" fill="#0c1e2c">GPG79 GLOBAL</text>
+  <rect x="104" y="172" width="450" height="390" rx="20" fill="#0d2837"/>
+  <path d="M104 500 C220 455,310 545,554 485 L554 562 L104 562 Z" fill="#1d6a7b"/>
+  <path d="M150 410 L270 410 L320 360 L470 360 L520 410 L520 450 L150 450 Z" fill="#f3f6f8"/>
+  <rect x="205" y="330" width="190" height="45" rx="8" fill="#d5a74f"/>
+  <path d="M150 474 C220 452,270 492,340 470 C410 448,470 492,530 468" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/>
+  <rect x="610" y="190" width="430" height="44" rx="22" fill="#d5a74f" opacity="0.95"/>
+  <text x="610" y="290" font-family="Inter, Arial" font-size="52" font-weight="700" fill="#071723">Global petroleum</text>
+  <text x="610" y="352" font-family="Inter, Arial" font-size="52" font-weight="700" fill="#071723">& marine logistics</text>
+  <text x="610" y="420" font-family="Inter, Arial" font-size="25" fill="#475865">Strona korporacyjna dla usług paliwowych,</text>
+  <text x="610" y="458" font-family="Inter, Arial" font-size="25" fill="#475865">charteringu i logistyki morskiej.</text>
+  <rect x="610" y="520" width="170" height="54" rx="27" fill="#071723"/>
+  <text x="651" y="555" font-family="Inter, Arial" font-size="22" fill="#fff">Zobacz</text>
+  <text x="103" y="635" font-family="Inter, Arial" font-size="22" fill="#656b71">Podmień ten placeholder na prawdziwy screenshot strony</text>
+</svg>
